@@ -1,0 +1,1 @@
+create object in article class for writer profile, only enter one profile per writer, write function that calls objects that have profile

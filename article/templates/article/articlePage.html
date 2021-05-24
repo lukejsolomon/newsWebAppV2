@@ -1,0 +1,66 @@
+{% extends 'article/top2bttmNavbar.html' %}
+{% block allArticles %}
+<h1>articlesPage</h1>
+<div class="row">
+    <!-- grid -->
+    <div class="col-lg-12 col-md-12">
+        <div class="articlesContainer">
+            {% if article.articlePageImage %}
+
+            <img class="articlesPageImg" src="{{ article.articlePageImage.url }}" alt="">
+
+            {% else %}
+            <img class="articlesPageImg" src="{{ article.profilePic.url }}" alt="">
+
+            {% endif %}
+
+            <div class="articlesPageTextBlock">
+                <p class="title"> <i class="fa fa-newspaper"></i>{{ article.title }}
+                <p>
+                <p class="writer">By: {{ article.link }} | {{ article.date|date:'M d Y'|upper }}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12">
+        <div class="articleContent">
+            {{ article.articlePageContent | safe }}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!-- grid -->
+    <div class="col-lg-12 col-md-12">
+        <div class="articlesContainer">
+            {% if article.articlePageImage2 %}
+            <img class="articlesPageImg" src="{{ article.articlePageImage2.url }}">
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12">
+        <div class="articleContent">
+            {{ article.articlePageContent2 | safe }}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!-- grid -->
+    <div class="col-lg-12 col-md-12">
+        <div class="articlesContainer">
+            {% if article.articlePageImage2 %}
+            <img class="articlesPageImg" src="{{ article.articlePageImage3.url }}">
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12">
+        <div class="articleContent">
+            {{ article.articlePageContent3 | safe }}
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12">
+        <div class="articleContent">
+            {{ article.byProfile | safe }}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'article/top2bttmNavbar.html' %}
+{% block allArticles %}
+<h1>contributorsPage</h1>
+<div class="row">
+    <!-- grid -->
+    <div class="col-lg-12 col-md-12">
+        <div class="articlesContainer">
+            <img class="articlesPageImg" src="{{ article.articlePageImage.url }}" alt="">
+            <div class="articlesPageTextBlock">
+                <p class="articlesPageTitle">{{ article.title }}
+                <p>
+                <p class="articlesPageWriter">By:{{ article.by }} | {{ article.date|date:'M d Y'|upper }}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12">
+        <div class="articleContent">
+            {{ article.articlePageContent | safe }}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!-- grid -->
+    <div class="col-lg-12 col-md-12">
+        <div class="articlesContainer">
+            <img class="articlesPageImg" src="{{ article.articlePageImage2.url }}">
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12">
+        <div class="articleContent">
+            {{ article.articlePageContent2 | safe }}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!-- grid -->
+    <div class="col-lg-12 col-md-12">
+        <div class="articlesContainer">
+            <img class="articlesPageImg" src="{{ article.articlePageImage3.url }}">
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12">
+        <div class="articleContent">
+            {{ article.articlePageContent3 | safe }}
+        </div>
+    </div>
+</div>
+{% endblock %}

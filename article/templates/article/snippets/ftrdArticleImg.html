@@ -1,0 +1,8 @@
+<div class="col-lg-4 col-md-6">
+    {% for article in articles %}
+    <h1>{{ article.type }}
+
+    </h1>
+    <img class="articleImgs" src="{{ article.articlePageImage.url }}">
+    {% endfor %}
+</div>

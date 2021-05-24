@@ -1,0 +1,150 @@
+{% extends 'article/top2bttmNavbar.html' %}
+{% block allArticles %}
+<div class="featSml">
+    <div class="textBlockTop">
+       <div class="titleTop">Featured News Article</div>
+    </div>
+    <div class="row">
+       {% for article in featured %}
+       <!-- grid -->
+       <div class="col-lg-12">
+          <div class="container-fluid">
+             <img class="articleImgsF" src="{{ article.articlePageImage.url }}">
+             <a href="{% url 'articlePage' article.id %}" class="icon">
+                <div class="textBlockF">
+                   <p class="titleF"> <i class="fa fa-newspaper"></i>{{ article.title }}
+                   <p>
+                   <p class="writerF">By: {{ article.by }} | {{ article.date|date:'M d Y'|upper }}
+                   </p>
+                </div>
+             </a>
+
+          </div>
+       </div>
+       {% endfor %}
+    </div>
+ </div>
+
+
+
+
+<div class="topNewsStrs">
+
+<div class="row">
+   <div class="col-lg-6">
+      <div class="textBlockTop">
+         <div class="titleTop">Top News Stories</div>
+      </div>
+      
+      <div class="row">
+
+         {% for article in articles %}
+         <!-- grid -->
+         <div class="topNewsStrsTB">
+
+         <div class="col-lg-12">
+            <div class="container-fluid">
+               <a href="{% url 'articlePage' article.id %}">
+                  <img class="articleImgs" src="{{ article.articlePageImage.url }}">
+                  <div class="textBlock">
+                     <p class="title"> <i class="fa fa-newspaper"></i>{{ article.title }}
+                     <p>
+                     <p class="writer">By: {{ article.by }} | {{ article.date|date:'M d Y'|upper }}
+                     </p>
+                  </div>
+               </a>
+            </div>
+         </div>
+
+        </div>
+         {% endfor %}
+      </div>
+
+
+
+
+
+   </div>
+
+      <div class="col-lg-6" style="margin-left: -15rem;">
+        <div class="feat">
+         <div class="textBlockTop">
+            <div class="titleTop">Featured News Article</div>
+         </div>
+         <div class="row">
+            {% for article in featured %}
+            <!-- grid -->
+            <div class="col-lg-12">
+               <div class="container-fluid">
+                  <img class="articleImgsF" src="{{ article.articlePageImage.url }}">
+                  <a href="{% url 'articlePage' article.id %}" class="icon">
+                     <div class="textBlockF">
+                        <p class="titleF"> <i class="fa fa-newspaper"></i>{{ article.title }}
+                        <p>
+                        <p class="writerF">By: {{ article.by }} | {{ article.date|date:'M d Y'|upper }}
+                        </p>
+                     </div>
+                  </a>
+                  <div class="articleContentF">
+                     {{ article.articlePageContent | safe }}
+                  </div>
+               </div>
+            </div>
+            {% endfor %}
+         </div>
+      </div>
+   </div>
+
+
+
+
+</div>
+</div>
+
+
+<div class="textBlockTop">
+   <div class="titleTop">Top Podcasts</div>
+</div>
+<div class="row">
+   {% for article in podcasts %}
+   <!-- grid -->
+<div class="topPodcastsTB">
+   
+    <div class="col-lg-3">
+      <div class="container-fluid">
+         <img class="pdcstImgs" src="{{ article.articlePageImage.url }}">
+         <a href="{% url 'articlePage' article.id %}" class="icon">
+            <div class="textBlock">
+               <p class="title"><i class="fa fa-play" style="margin-right: 1rem;"></i>{{ article.title }}
+               <p>
+               <p class="writer">By: {{ article.by }}| {{ article.date|date:'M d Y'|upper }}
+               </p>
+            </div>
+         </a>
+      </div>
+   </div>
+
+</div>
+   {% endfor %}
+</div>
+<div class="textBlockTop">
+   <div class="titleTop">Our Contributors</div>
+</div>
+<div class="row">
+   {% for article in contributors %}
+   <!-- grid -->
+   <div class="col-lg-3">
+      <div class="container-fluid">
+         <img class="proPicsA" src="{{ article.profilePic.url }}">
+         <a href="{% url 'contributorsPage' article.id %}" class="icon">
+            <div class="contributorTextBlock">
+               <p class="contributor"><i class="fa fa-user" style="margin-right: 1rem;"></i>{{ article.by }}
+               </p>
+            </div>
+         </a>
+      </div>
+   </div>
+   {% endfor %}
+</div>
+<br /><br />
+{% endblock %}

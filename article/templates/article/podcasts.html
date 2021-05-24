@@ -1,0 +1,24 @@
+{% extends 'article/top2bttmNavbar.html' %}
+{% block allArticles %}
+<div class="textBlockTop">
+    <div class="titleTop">Top Podcasts</div>
+</div>
+<div class="row">
+    {% for article in articles %}
+    <!-- grid -->
+    <div class="col-lg-4 col-md-6">
+        <div class="container-fluid">
+            <img class="articleImgs" src="{{ article.articlePageImage.url }}">
+            <a href="{% url 'articlePage' article.id %}" class="icon">
+                <div class="textBlock">
+                    <p class="title"><i class="fa fa-play" style="margin-right: 1rem;"></i>{{ article.title }}
+                    <p>
+                    <p class="writer">By: {{ article.by }} | {{ article.date|date:'M d Y'|upper }}
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

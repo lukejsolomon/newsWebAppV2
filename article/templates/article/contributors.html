@@ -1,0 +1,75 @@
+{% extends 'article/top2bttmNavbar.html' %}
+{% block allContributors %}
+<div class="textBlockTop">
+    <div class="titleTop">Our Contributors</div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        {% for article in articles %}
+        <div class="col-sm-4">
+            <a href="articlePage.html">
+                <img class="proPics" src="{{ article.profilePic.url }}">
+            </a>
+        </div>
+        <div class="col-sm-4">
+            <div class="textBlockC">
+                <p class="contributorPageName">{{ article.by }}:
+                <p>
+            </div>
+            <div class="textBlockC">
+                <p class="contributorPageName"><i class="fa fa-newspaper"></i>News Articles
+                <p>
+            </div>
+            <div class="textBlockC">
+                <p class="contributorPageName"><i class="fa fa-podcast"></i>Podcasts
+                <p>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <span class="contributorInfo">
+                {{ article.byProfile | safe }}
+            </span>
+        </div>
+        {% endfor %}
+    </div>
+
+
+
+</div>
+{% endblock %}
+
+
+
+
+<!-- <div class="textBlockNews">
+    <div class="titleNews">Our Contributors</div>
+</div>
+<div class="row">
+
+
+    <div class="col-lg-6 col-md-6">
+        <div class="container">
+            <a href="articlePage.html"><br>
+                <img class="profilePicImgs" src="{{ article.profilePic.url }}">
+
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6">
+        <p class="contributorInfo">{{ article.byProfile | safe }}
+        </p>
+
+        <div class="contributorNameBlock">
+            <p class="ContributorName">{{ article.by }}
+            </p>
+        </div>
+        <div class="contributorNewsArticlesBlock">
+            <p class="contributorNewsArticles">News Articles
+            </p>
+        </div>
+        <div class="contributorNewsArticlesBlock">
+            <p class="contributorNewsArticles">Podcasts
+            </p>
+        </div>
+    </div>
+ -->
